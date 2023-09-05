@@ -31,6 +31,10 @@ public class Book {
         return books.stream().filter(book -> book.getId().equals(id)).findFirst().orElse(null);
     }
 
+    public static List<Book> getBookList() {
+        return books;
+    }
+
     public String getId() {
         return id;
     }

@@ -5,6 +5,8 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 /**
  * @author: dongdahai
  * @date: 2023/9/1
@@ -20,5 +22,10 @@ public class BookController {
     @SchemaMapping
     public Author author(Book book) {
         return Author.getById(book.getAuthorId());
+    }
+
+    @QueryMapping
+    public List<Book> queryBookList(@Argument String id) {
+        return Book.getBookList();
     }
 }
